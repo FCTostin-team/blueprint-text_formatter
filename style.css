@@ -1,0 +1,378 @@
+@font-face {
+  font-family: "Factorio";
+  src: url("https://fonts.cdnfonts.com/s/19687/PressStart2P-Regular.woff") format("woff");
+}
+:root {
+  --factorio-dark: #262626;
+  --factorio-darker: #1a1a1a;
+  --factorio-mid: #414141;
+  --factorio-accent: #358cca;
+  --factorio-accent-dark: #296cb0;
+  --factorio-text: #e9e9e9;
+  --factorio-yellow: #ffd200;
+  --factorio-blue: #5796c8;
+  --factorio-red: #db2e20;
+  --factorio-green: #1d6d1d;
+  --factorio-panel-border: #696969;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: "Factorio", monospace;
+  background: var(--factorio-dark) url('https://i.ibb.co/39K7GFn6/nuclear-ground.png');
+  color: var(--factorio-text);
+  font-size: 13px;
+  min-height: 100vh;
+  line-height: 1.5;
+}
+.container {
+  max-width: 800px;
+  margin: 30px auto 0 auto;
+  padding: 0 15px;
+}
+.github-corner-link {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 10;
+  margin: 12px 12px 0 0;
+  text-decoration: none;
+  background: var(--factorio-accent);
+  color: #181818;
+  border: 2px solid #696969;
+  border-radius: 6px;
+  padding: 6px 10px 6px 10px;
+  font-family: "Factorio", monospace;
+  font-size: 13px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  box-shadow: 0 0 8px #0006, 0 2px 8px #ff9d0044;
+  transition: background 0.16s, color 0.16s, box-shadow 0.16s;
+  outline: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.github-corner-link:hover {
+  background: var(--factorio-accent-dark);
+  color: #fff;
+  box-shadow: 0 0 18px #ff9d0088, 0 2px 12px #000a;
+  text-decoration: none;
+}
+.github-corner-link svg {
+  display: inline;
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+  margin-right: 3px;
+  margin-bottom: -2px;
+}
+.factorio-frame {
+  background-color: var(--factorio-mid);
+  border: 3px solid var(--factorio-panel-border);
+  border-radius: 0;
+  position: relative;
+  padding: 30px 20px 30px;
+  margin-bottom: 30px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+.factorio-frame::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 20px;
+  background-color: var(--factorio-panel-border);
+}
+.factorio-frame-title {
+  position: absolute;
+  top: 0;
+  left: 12px;
+  height: 20px;
+  line-height: 20px;
+  color: var(--factorio-text);
+  font-size: 10px;
+  text-transform: uppercase;
+  z-index: 1;
+}
+.header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.header h1 {
+  font-size: 24px;
+  color: var(--factorio-yellow);
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+  margin-bottom: 10px;
+}
+.format-panel {
+  background-color: var(--factorio-darker);
+  border: 2px solid #555;
+  margin-bottom: 15px;
+  position: relative;
+  padding-bottom: 16px;
+}
+.format-header {
+  background-color: #333;
+  padding: 8px 12px;
+  border-bottom: 2px solid #555;
+  display: flex;
+  align-items: center;
+  font-size: 13px;
+  color: var(--factorio-blue);
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
+}
+.format-icon {
+  width: 32px;
+  height: 32px;
+  background-image: url('https://i.ibb.co/d4Gxc5jW/blueprint2.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-right: 10px;
+}
+.format-body {
+  padding: 20px 10px 0 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.factorio-label {
+  font-size: 13px;
+  color: var(--factorio-yellow);
+  font-weight: bold;
+  margin-bottom: 8px;
+  text-shadow: 1px 1px 2px #0009;
+  text-align: center;
+  letter-spacing: 1px;
+}
+.factorio-textarea, .result-box {
+  width: 600px;
+  min-width: 690px;
+  max-width: 690px;
+  min-height: 100px;
+  max-height: 300px;
+  height: 100px;
+  margin-bottom: 18px;
+  font-size: 13px;
+  background: #111;
+  color: var(--factorio-text);
+  border: 2px solid #555;
+  border-radius: 0;
+  padding: 12px;
+  font-family: "Consolas", "Fira Mono", "Menlo", "Monaco", monospace;
+  outline: none;
+  box-shadow: 0 1px 6px #0002;
+  resize: vertical;
+  overflow-y: auto;
+  word-break: break-all;
+  overflow-wrap: anywhere;
+  line-break: anywhere;
+  transition: border 0.18s;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+.factorio-textarea:focus {
+  border-color: var(--factorio-blue);
+}
+.result-box {
+  margin: 0;
+  padding: 0;
+}
+.result-box:focus {
+  border-color: var(--factorio-blue);
+}
+ .blueprint-book {
+  display: flex;
+  background-color: var(--factorio-darker);
+  border: 2px solid #555;
+  padding: 5px;
+  margin-bottom: 20px;
+  position: relative;
+}
+.blueprint-book-icon {
+  flex: 0 0 42px;
+  height: 42px;
+  background-image: url('https://i.ibb.co/Lf1C9DF/blueprint1.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-right: 10px;
+}
+.blueprint-book-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.blueprint-book-title {
+  font-size: 16px;
+  color: var(--factorio-blue);
+  margin-bottom: 5px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+}
+.blueprint-book-desc {
+  font-size: 10px;
+  color: #aaa;
+}
+ .icon-grid {
+  position: absolute;
+  top: 10px;
+  right: -66px;
+  display: grid;
+  grid-template-columns: repeat(4, 24px);
+  grid-gap: 2px;
+}
+.icon-box {
+  width: 24px;
+  height: 24px;
+  background-color: #333;
+  border: 1px solid #555;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  color: var(--factorio-text);
+}
+.center-row {
+  display: flex;
+  align-items: flex-end;
+  gap: 12px;
+  margin-bottom: 10px;
+  margin-top: 6px;
+  justify-content: center;
+  width: 100%;
+}
+.chunk-size-input,
+.tail-split-input {
+  width: 90px;
+  font-size: 1.1em;
+  padding: 8px 10px;
+  border: 2px solid #555;
+  border-radius: 0;
+  background: #191919;
+  color: var(--factorio-yellow);
+  outline: none;
+  text-align: center;
+  font-family: inherit;
+  transition: border 0.18s;
+  margin-left: 7px;
+  margin-right: 10px;
+}
+.chunk-size-input:focus,
+.tail-split-input:focus {
+  border-color: var(--factorio-blue);
+}
+.tail-split-input {
+  margin-left: 0;
+  margin-right: 0;
+}
+.tail-split-label {
+  font-size: 1em;
+  color: var(--factorio-yellow);
+  margin-bottom: 0;
+  margin-right: 2px;
+  font-weight: bold;
+  letter-spacing: .7px;
+}
+.mode-select-container {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 0 0 18px 0;
+  justify-content: flex-end;
+}
+.mode-label {
+  color: var(--factorio-yellow);
+  font-size: 1em;
+  font-weight: bold;
+  letter-spacing: .7px;
+}
+.mode-dropdown {
+  appearance: none;
+  border: 2px solid #aaa;
+  border-radius: 0;
+  background: #323232;
+  color: var(--factorio-yellow);
+  font-size: 1.07em;
+  padding: 6px 20px 6px 10px;
+  font-family: inherit;
+  cursor: pointer;
+  min-width: 130px;
+  box-shadow: 0 1px 3px #0002;
+  transition: border 0.18s;
+}
+.mode-dropdown:focus {
+  border-color: var(--factorio-blue);
+  outline: none;
+}
+.factorio-button {
+  background-color: var(--factorio-mid);
+  border: 2px solid #555;
+  color: var(--factorio-text);
+  padding: 8px 12px;
+  font-family: "Factorio", monospace;
+  font-size: 10px;
+  cursor: pointer;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+  box-shadow: inset 0 0 5px rgba(255, 255, 255, 0.1);
+  position: relative;
+  overflow: hidden;
+  transition: background-color 0.2s;
+}
+.factorio-button:hover {
+  background-color: #505050;
+}
+.factorio-button:active {
+  background-color: #333;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);
+}
+.factorio-button.copied {
+  background: var(--factorio-green) !important;
+  color: #fff !important;
+  box-shadow: 0 0 15px 2px #5fcf87cc;
+}
+.info {
+  margin-top: 12px;
+  font-size: 12px;
+  color: #bbb;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  justify-content: center;
+  width: 100%;
+  text-align: center;
+}
+.info p {
+  margin: 0;
+  padding: 0;
+}
+.footer {
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 2px solid #555;
+  display: flex;
+  justify-content: space-between;
+  font-size: 10px;
+  color: #777;
+}
+.footer a {
+  color: var(--factorio-blue);
+  text-decoration: none;
+}
+.footer a:hover {
+  text-decoration: underline;
+}
+.icon-link {
+  text-decoration: none;
+  color: #696969;
+}
+@media (max-width: 900px) {
+  .container { max-width: 99vw; }
+  .factorio-frame { padding: 12px 3vw 16px 3vw; }
+  .factorio-textarea, .result-box { width: 98vw; min-width: 0; max-width: 100vw; }

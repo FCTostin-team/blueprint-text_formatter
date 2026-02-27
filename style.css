@@ -387,10 +387,12 @@ body {
   background: var(--factorio-mid);
   color: var(--factorio-yellow);
   font-family: inherit;
-  font-size: 14px;
+  font-size: 12px;
   cursor: pointer;
-  width: 38px;
+  min-width: 110px;
   height: 32px;
+  padding: 0 10px;
+  text-align: center;
   box-shadow: 0 0 8px #0006;
 }
 .lang-toggle:hover {

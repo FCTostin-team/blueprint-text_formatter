@@ -137,6 +137,15 @@ function initializeTailSplit() {
   tailSplitContainer.classList.toggle('hidden', modeSelect.value !== 'tail');
 }
 
+function getSelectedLanguageLabel() {
+  const selectedOption = langSelect.options[langSelect.selectedIndex];
+  return selectedOption ? selectedOption.textContent : 'Language';
+}
+
+function refreshLangToggleLabel() {
+  langToggle.textContent = getSelectedLanguageLabel();
+}
+
 function applyLocale(locale) {
   const fallback = (window.APP_LOCALES && window.APP_LOCALES.ru) || {};
   const data = (window.APP_LOCALES && window.APP_LOCALES[locale]) || fallback;
@@ -165,6 +174,7 @@ function applyLocale(locale) {
   document.getElementById('lang-select').setAttribute('aria-label', data.langAria || fallback.langAria);
 
   setStorage('pr98_lang', locale);
+  refreshLangToggleLabel();
 }
 
 function toggleLangMenu(forceOpen) {
@@ -219,6 +229,7 @@ langToggle.addEventListener('click', function () {
 
 langSelect.addEventListener('change', function () {
   applyLocale(langSelect.value);
+  toggleLangMenu(false);
 });
 
 document.addEventListener('click', function (event) {
@@ -241,6 +252,7 @@ document.addEventListener('mousemove', function (event) {
 
 const savedLang = getStorage('pr98_lang', 'ru');
 langSelect.value = savedLang;
+refreshLangToggleLabel();
 applyLocale(savedLang);
 initializeTailSplit();
 updateAll();

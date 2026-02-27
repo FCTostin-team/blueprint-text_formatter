@@ -9,71 +9,104 @@
 </head>
 <body>
   <div class="container">
-    <a href="https://fctostin.github.io/blueprint-code_compression/" class="github-corner-link" target="_blank" title="Перейти на компресор чертежей">
+    <a id="compression-link" href="https://fctostin.github.io/blueprint-code_compression/" class="github-corner-link" target="_blank" title="Перейти на компресор чертежей">
       <svg viewBox="0 0 24 24">
         <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.799 8.205 11.387.6.111.82-.261.82-.577v-2.165c-3.338.726-4.033-1.416-4.033-1.416C4.422 17.872 3.633 17.5 3.633 17.5c-1.087-.744.083-.729.083-.729 1.205.084 1.84 1.237 1.84 1.237 1.07 1.834 2.809 1.304 3.495.997.108-.775.418-1.304.76-1.604-2.665-.303-5.466-1.332-5.466-5.931 0-1.31.469-2.381 1.236-3.221-.124-.303-.535-1.523.117-3.176 0 0 1.008-.322 3.301 1.23a11.49 11.49 0 013.003-.404c1.02.005 2.049.138 3.003.404 2.291-1.553 3.297-1.23 3.297-1.23.654 1.653.243 2.873.12 3.176.77.84 1.235 1.911 1.235 3.221 0 4.61-2.804 5.625-5.475 5.921.43.371.813 1.102.813 2.222v3.293c0 .319.216.694.825.576C20.565 21.796 24 17.297 24 12c0-6.63-5.373-12-12-12z"/>
       </svg>
-      Code compression
+      <span id="compression-link-text">Code compression</span>
     </a>
+
+    <div class="lang-switcher">
+      <button id="lang-toggle" class="lang-toggle" type="button" aria-expanded="false">🌐</button>
+      <div id="lang-menu" class="lang-menu hidden">
+        <select id="lang-select" class="lang-dropdown" aria-label="Выбор языка">
+          <option value="ru">Русский</option>
+          <option value="en">English</option>
+          <option value="uk">Українська</option>
+          <option value="kk">Қазақша</option>
+          <option value="cs">Čeština</option>
+          <option value="nl">Nederlands</option>
+          <option value="sv">Svenska</option>
+          <option value="de">Deutsch</option>
+          <option value="pl">Polski</option>
+          <option value="fr">Français</option>
+          <option value="zh">中文</option>
+          <option value="ja">日本語</option>
+        </select>
+      </div>
+    </div>
+
     <div class="header">
-      <h1>FCT ТЕКСТОВЫЙ ФОРМАТИРОВЩИК</h1>
+      <h1 id="header-title">FCT ТЕКСТОВЫЙ ФОРМАТИРОВЩИК</h1>
     </div>
     <div class="blueprint-book">
       <div class="blueprint-book-icon"></div>
       <div class="blueprint-book-content">
-        <div class="blueprint-book-title">Текстовый форматировщик для Factorio</div>
-        <div class="blueprint-book-desc">Перенос строк для таблиц внутри руководств Steam</div>
+        <div id="book-title" class="blueprint-book-title">Текстовый форматировщик для Factorio</div>
+        <div id="book-desc" class="blueprint-book-desc">Перенос строк для таблиц внутри руководств Steam</div>
       </div>
       <div class="icon-grid">
         <div class="icon-box">
-          <a href="#" onclick="clearFields()" class="icon-link" title="Очистить поля">✖</a>
+          <a id="clear-button" href="#" class="icon-link" title="Очистить поля">✖</a>
         </div>
       </div>
     </div>
     <div class="factorio-frame">
-      <div class="factorio-frame-title">ТЕКСТОВЫЙ ПАНЕЛЬ-ФОРМАТТЕР</div>
+      <div id="panel-title" class="factorio-frame-title">ТЕКСТОВЫЙ ПАНЕЛЬ-ФОРМАТТЕР</div>
       <div class="format-panel">
         <div class="format-header">
           <div class="format-icon"></div>
-          <div>ФОРМАТИРОВАНИЕ СТРОКИ</div>
+          <div id="format-title">ФОРМАТИРОВАНИЕ СТРОКИ</div>
         </div>
         <div class="format-body">
           <div class="mode-select-container">
-            <span class="mode-label">Режим:</span>
+            <span id="mode-label" class="mode-label">Режим:</span>
             <select id="mode-select" class="mode-dropdown">
-              <option value="normal">Обычный перенос</option>
-              <option value="tail">Перенос только последних символов</option>
+              <option id="mode-normal" value="normal">Обычный перенос</option>
+              <option id="mode-tail" value="tail">Перенос только последних символов</option>
             </select>
           </div>
-          <label class="factorio-label" for="inputText">Введите текст:</label>
+          <label id="input-label" class="factorio-label" for="inputText">Введите текст:</label>
           <textarea id="inputText" class="factorio-textarea" placeholder="Вставьте сюда ваш текст..."></textarea>
           <div class="center-row">
-            <span id="tail-split-container" style="display:none;">
-              <span class="tail-split-label">Количество частей:</span>
+            <span id="tail-split-container" class="hidden">
+              <span id="tail-parts-label" class="tail-split-label">Количество частей:</span>
               <input type="number" min="1" max="99" step="1" id="tail-split-input" class="tail-split-input" value="3">
             </span>
-            <span class="factorio-label">Последние символы:</span>
+            <span id="tail-chars-label" class="factorio-label">Последние символы:</span>
             <input type="number" min="1" max="500" step="1" id="chunk-size-input" class="chunk-size-input" value="98">
           </div>
           <div id="outputText" class="result-box" tabindex="0"></div>
           <button id="copyButton" class="factorio-button">Скопировать</button>
           <div class="info">
-            <p>Символов в исходном тексте: <span id="charCount">0</span></p>
-            <p>Строк в результате: <span id="lineCount">0</span></p>
-            <p>Длина строки: <span id="lineLength">0</span></p>
+            <p><span id="char-count-label">Символов в исходном тексте:</span> <span id="charCount">0</span></p>
+            <p><span id="line-count-label">Строк в результате:</span> <span id="lineCount">0</span></p>
+            <p><span id="line-length-label">Длина строки:</span> <span id="lineLength">0</span></p>
           </div>
         </div>
       </div>
     </div>
     <div class="footer">
-      <p>🐞 <a href="https://www.youtube.com/@FCT-Ostin" target="_blank">YouTube</a></p>
-      <p>💙 <a href="https://t.me/FCTostin" target="_blank">Telegram</a></p>
-      <p>🎮 <a href="https://steamcommunity.com/groups/FCTgroup" target="_blank">Steam Group</a></p>
-      <p>🕹 <a href="https://www.patreon.com/c/OstinFCT" target="_blank">Patreon</a></p>
-      <p>🪐 <a href="https://boosty.to/ostinfct" target="_blank">Boosty</a></p>
-      <p>Создано при поддержке Телеграм сообщества FCTostin</p>
+      <p>🐞 <a id="youtube-link" href="https://www.youtube.com/@FCT-Ostin" target="_blank">YouTube</a></p>
+      <p>💙 <a id="telegram-link" href="https://t.me/FCTostin" target="_blank">Telegram</a></p>
+      <p>🎮 <a id="steam-link" href="https://steamcommunity.com/groups/FCTgroup" target="_blank">Steam Group</a></p>
+      <p>🕹 <a id="patreon-link" href="https://www.patreon.com/c/OstinFCT" target="_blank">Patreon</a></p>
+      <p>🪐 <a id="boosty-link" href="https://boosty.to/ostinfct" target="_blank">Boosty</a></p>
+      <p id="support-text">Создано при поддержке Телеграм сообщества FCTostin</p>
     </div>
   </div>
+  <script src="profiles/ru.js"></script>
+  <script src="profiles/en.js"></script>
+  <script src="profiles/uk.js"></script>
+  <script src="profiles/kk.js"></script>
+  <script src="profiles/cs.js"></script>
+  <script src="profiles/nl.js"></script>
+  <script src="profiles/sv.js"></script>
+  <script src="profiles/de.js"></script>
+  <script src="profiles/pl.js"></script>
+  <script src="profiles/fr.js"></script>
+  <script src="profiles/zh.js"></script>
+  <script src="profiles/ja.js"></script>
   <script src="script.js"></script>
 </body>
 </html>

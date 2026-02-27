@@ -36,9 +36,9 @@ body {
 .github-corner-link {
   position: absolute;
   top: 0;
-  right: 0;
+  left: 0;
   z-index: 10;
-  margin: 12px 12px 0 0;
+  margin: 12px 0 0 12px;
   text-decoration: none;
   background: var(--factorio-accent);
   color: #181818;
@@ -381,6 +381,7 @@ body {
   top: 14px;
   right: 14px;
   z-index: 20;
+  width: 170px;
 }
 .lang-toggle {
   border: 2px solid #696969;
@@ -389,7 +390,7 @@ body {
   font-family: inherit;
   font-size: 12px;
   cursor: pointer;
-  min-width: 110px;
+  width: 100%;
   height: 32px;
   padding: 0 10px;
   text-align: center;
@@ -399,6 +400,9 @@ body {
   background: #505050;
 }
 .lang-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
   margin-top: 6px;
   padding: 8px;
   background: var(--factorio-darker);
@@ -428,5 +432,5 @@ body {
   .container { max-width: 99vw; }
   .factorio-frame { padding: 12px 3vw 16px 3vw; }
   .factorio-textarea, .result-box { width: 98vw; min-width: 0; max-width: 100vw; }
-  .lang-switcher { right: 14px; top: 54px; }
+  .lang-switcher { top: 54px; right: 14px; width: 170px; }
 }

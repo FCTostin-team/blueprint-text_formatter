@@ -372,7 +372,59 @@ body {
   text-decoration: none;
   color: #696969;
 }
+
+.hidden {
+  display: none;
+}
+.lang-switcher {
+  position: fixed;
+  top: 14px;
+  right: 14px;
+  z-index: 20;
+}
+.lang-toggle {
+  border: 2px solid #696969;
+  background: var(--factorio-mid);
+  color: var(--factorio-yellow);
+  font-family: inherit;
+  font-size: 14px;
+  cursor: pointer;
+  width: 38px;
+  height: 32px;
+  box-shadow: 0 0 8px #0006;
+}
+.lang-toggle:hover {
+  background: #505050;
+}
+.lang-menu {
+  margin-top: 6px;
+  padding: 8px;
+  background: var(--factorio-darker);
+  border: 2px solid #555;
+  box-shadow: 0 0 12px #000a;
+}
+.lang-dropdown {
+  appearance: none;
+  border: 2px solid #aaa;
+  border-radius: 0;
+  background: #323232;
+  color: var(--factorio-yellow);
+  font-size: 1em;
+  padding: 6px 10px;
+  font-family: inherit;
+  cursor: pointer;
+  min-width: 160px;
+  box-shadow: 0 1px 3px #0002;
+  transition: border 0.18s;
+}
+.lang-dropdown:focus {
+  border-color: var(--factorio-blue);
+  outline: none;
+}
+
 @media (max-width: 900px) {
   .container { max-width: 99vw; }
   .factorio-frame { padding: 12px 3vw 16px 3vw; }
   .factorio-textarea, .result-box { width: 98vw; min-width: 0; max-width: 100vw; }
+  .lang-switcher { right: 14px; top: 54px; }
+}

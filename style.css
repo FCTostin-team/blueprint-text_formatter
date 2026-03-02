@@ -376,14 +376,14 @@ body {
 .hidden {
   display: none;
 }
-.lang-switcher {
+.language-switcher {
   position: fixed;
   top: 14px;
   right: 14px;
   z-index: 20;
   width: 170px;
 }
-.lang-dropdown {
+.factorio-button language-select {
   appearance: none;
   border: 2px solid #696969;
   border-radius: 0;
@@ -398,7 +398,7 @@ body {
   box-shadow: 0 0 8px #0006;
   transition: border 0.18s;
 }
-.lang-dropdown:focus {
+.factorio-button language-select:focus {
   border-color: var(--factorio-blue);
   outline: none;
 }
@@ -407,5 +407,66 @@ body {
   .container { max-width: 99vw; }
   .factorio-frame { padding: 12px 3vw 16px 3vw; }
   .factorio-textarea, .result-box { width: 98vw; min-width: 0; max-width: 100vw; }
-  .lang-switcher { top: 54px; right: 14px; width: 170px; }
+  .language-switcher { top: 54px; right: 14px; width: 170px; }
+}
+compression-link
+
+
+.github-corner-link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  margin: 12px 0 0 12px;
+  text-decoration: none;
+  background: var(--factorio-accent);
+  color: #181818;
+  border: 2px solid #696969;
+  border-radius: 6px;
+  padding: 6px 10px 6px 10px;
+  font-family: "Factorio", monospace;
+  font-size: 13px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  box-shadow: 0 0 8px #0006, 0 2px 8px #ff9d0044;
+  transition: background 0.16s, color 0.16s, box-shadow 0.16s;
+  outline: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.github-corner-link:hover {
+  background: var(--factorio-accent-dark);
+  color: #fff;
+  box-shadow: 0 0 18px #ff9d0088, 0 2px 12px #000a;
+  text-decoration: none;
+}
+.github-corner-link svg {
+  display: inline;
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+  margin-right: 3px;
+  margin-bottom: -2px;
+}
+
+.language-select {
+    margin-right: 0;
+    margin-bottom: 0;
+    min-width: 180px;
+    text-align: center;
+    text-align-last: center;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: none;
+}
+
+.language-select option {
+    text-align: center;
+}
+
+.language-select::-ms-expand {
+    display: none;
 }

@@ -22,8 +22,6 @@ const chunkSizeInput = document.getElementById('chunk-size-input');
 const modeSelect = document.getElementById('mode-select');
 const tailSplitInput = document.getElementById('tail-split-input');
 const tailSplitContainer = document.getElementById('tail-split-container');
-const langToggle = document.getElementById('lang-toggle');
-const langMenu = document.getElementById('lang-menu');
 const langSelect = document.getElementById('lang-select');
 
 modeSelect.value = getStorage('pr98_mode', 'normal');
@@ -137,15 +135,6 @@ function initializeTailSplit() {
   tailSplitContainer.classList.toggle('hidden', modeSelect.value !== 'tail');
 }
 
-function getSelectedLanguageLabel() {
-  const selectedOption = langSelect.options[langSelect.selectedIndex];
-  return selectedOption ? selectedOption.textContent : 'Language';
-}
-
-function refreshLangToggleLabel() {
-  langToggle.textContent = getSelectedLanguageLabel();
-}
-
 function applyLocale(locale) {
   const fallback = (window.APP_LOCALES && window.APP_LOCALES.ru) || {};
   const data = (window.APP_LOCALES && window.APP_LOCALES[locale]) || fallback;
@@ -174,13 +163,6 @@ function applyLocale(locale) {
   document.getElementById('lang-select').setAttribute('aria-label', data.langAria || fallback.langAria);
 
   setStorage('pr98_lang', locale);
-  refreshLangToggleLabel();
-}
-
-function toggleLangMenu(forceOpen) {
-  const open = typeof forceOpen === 'boolean' ? forceOpen : langMenu.classList.contains('hidden');
-  langMenu.classList.toggle('hidden', !open);
-  langToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
 }
 
 let copyTimeout;
@@ -223,19 +205,8 @@ modeSelect.addEventListener('change', function () {
   updateAll();
 });
 
-langToggle.addEventListener('click', function () {
-  toggleLangMenu();
-});
-
 langSelect.addEventListener('change', function () {
   applyLocale(langSelect.value);
-  toggleLangMenu(false);
-});
-
-document.addEventListener('click', function (event) {
-  if (!langMenu.contains(event.target) && !langToggle.contains(event.target)) {
-    toggleLangMenu(false);
-  }
 });
 
 let lastX = 0;
@@ -252,7 +223,6 @@ document.addEventListener('mousemove', function (event) {
 
 const savedLang = getStorage('pr98_lang', 'ru');
 langSelect.value = savedLang;
-refreshLangToggleLabel();
 applyLocale(savedLang);
 initializeTailSplit();
 updateAll();

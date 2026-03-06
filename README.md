@@ -1,25 +1,211 @@
-# FCT Text Formatter <a href="https://github.com/OstinUA"><img align="right" src="https://img.shields.io/badge/OstinUA-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub"></a>
+# FCT Text Formatter
 
-![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white) ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white) ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=F7DF1E) ![Factorio](https://img.shields.io/badge/Factorio-orange?style=for-the-badge&logo=factorio&logoColor=white)
+> One-click, zero-backend text chunking pipeline for Steam guide tables and Factorio blueprint workflows.
 
-A specialized web tool designed to format and split long text strings, specifically optimized for creating tables in Steam Guides or managing large Factorio blueprint strings. It automatically cleans whitespace and splits text into chunks of specific lengths to fit character limits or formatting requirements.
+[![GitHub Pages](https://img.shields.io/badge/Deploy-GitHub_Pages-222222?style=for-the-badge&logo=githubpages&logoColor=white)](https://fctostin-team.github.io/blueprint-text_formatter/)
+[![Version](https://img.shields.io/badge/version-1.0.0-informational?style=for-the-badge)](#)
+[![License: GPL-3.0](https://img.shields.io/badge/License-GPL--3.0-blue?style=for-the-badge)](LICENSE)
+[![Vanilla JS](https://img.shields.io/badge/stack-Vanilla_JS-F7DF1E?style=for-the-badge&logo=javascript&logoColor=000)](#technology-stack)
+[![i18n](https://img.shields.io/badge/i18n-multi--language-2ea44f?style=for-the-badge)](#features)
+
+A specialized browser-based formatter that normalizes noisy strings and emits deterministic line chunks for strict character-limited contexts (for example Steam Guide tables and Factorio blueprint-related text operations). The app runs fully client-side, persists user preferences in `localStorage`, and supports multiple UI locales out of the box.
+
+> [!IMPORTANT]
+> This tool is intentionally lightweight and has no server/API dependency. Your input never leaves the browser runtime unless you explicitly copy/share it.
+
+## Table of Contents
+
+- [Features](#features)
+- [Technology Stack](#technology-stack)
+- [Technical Notes](#technical-notes)
+  - [Project Structure](#project-structure)
+  - [Key Design Decisions](#key-design-decisions)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+- [Testing](#testing)
+- [Deployment](#deployment)
+- [Usage](#usage)
+- [Configuration](#configuration)
+- [License](#license)
+- [Community and Support](#community-and-support)
+- [Support the Development](#support-the-development)
 
 ## Features
 
-* **Dual Formatting Modes**:
-    * **Normal**: Splits the entire text into equal chunks (default 98 chars).
-    * **Tail**: Splits the main body and the "tail" of the text differently, useful for specific encoding structures.
-* **Steam Guide Optimization**: Designed to help fit long strings into Steam Guide table cells where line breaks are required.
-* **Auto-Cleaning**: Automatically removes unnecessary spaces and newlines from the input to ensure compact formatting.
-* **Real-time Metrics**: Displays character count, line count, and chunk size dynamically.
+- Dual formatting engine:
+  - `normal` mode splits the full cleaned payload into fixed-size chunks.
+  - `tail` mode splits using a controlled head/body/tail strategy for encoded string patterns.
+- Automatic whitespace normalization (`\s+` collapse/removal behavior) for stable output.
+- Real-time telemetry in UI:
+  - source character count,
+  - output line count,
+  - effective chunk length.
+- Language-aware interface powered by locale profiles under `profiles/*.js`.
+- Persistent UX state using `localStorage`:
+  - last mode,
+  - per-mode chunk size,
+  - tail split parts,
+  - last input text.
+- Clipboard-first workflow for fast copy/paste into Steam or other editors.
+- Pure static architecture: open in any modern browser, no build step required.
 
-## Installation and Usage
+> [!TIP]
+> If you work with repetitive blueprint edits, keep the tool pinned in a browser tab and reuse persisted settings for near-instant formatting passes.
 
-1.  Clone the repository or download the `index.html` file.
-2.  Open the file in any modern web browser.
-3.  Paste your text or blueprint string into the input field.
-4.  Select the desired mode ("Normal" or "Tail") and adjust the chunk size.
-5.  Click **"СКОПИРОВАТЬ"** (Copy) to get the formatted result.
+## Technology Stack
+
+- `HTML5` for semantic page layout.
+- `CSS3` for Factorio-themed UI styling.
+- `Vanilla JavaScript (ES6+)` for formatting logic and i18n orchestration.
+- `localStorage` for client-only persistence.
+- `GitHub Pages` compatible static hosting model.
+
+## Technical Notes
+
+### Project Structure
+
+```text
+.
+├── index.html              # Main UI markup and script imports
+├── style.css               # Theme and layout styles
+├── script.js               # Core formatter logic, i18n wiring, UI events
+├── profiles/               # Locale dictionaries (ru, en, uk, kk, cs, nl, sv, de, pl, fr, zh, ja)
+├── README.md               # Project documentation
+├── CONTRIBUTING.md         # Contribution workflow and quality gates
+├── CODE_OF_CONDUCT.md      # Community behavior expectations
+└── LICENSE                 # GPL-3.0 license text
+```
+
+### Key Design Decisions
+
+1. **Client-only execution model**
+   - Keeps privacy guarantees straightforward.
+   - Eliminates infra/runtime overhead.
+2. **No framework dependency**
+   - Minimal bootstrap cost.
+   - Easy to audit and extend.
+3. **Deterministic formatting functions**
+   - `formatNormal`, `formatTail`, and `formatTailSplit` are predictable and composable.
+4. **Locale profiles as plain JS objects**
+   - Fast to add new languages without tooling.
+   - Keeps translation updates low-friction for contributors.
+
+> [!NOTE]
+> Current tail mode uses a fixed `firstHead` strategy in `script.js`, optimized for the project’s target string patterns.
+
+## Getting Started
+
+### Prerequisites
+
+You only need:
+
+- A modern browser (`Chrome`, `Firefox`, `Edge`, `Safari`).
+- Optional for development:
+  - `Git` (to clone and contribute),
+  - any static file server (for local hosting parity),
+  - optional Node.js tooling if you want to add custom lint/test scripts.
+
+### Installation
+
+```bash
+# 1) Clone repository
+git clone https://github.com/fctostin-team/blueprint-text_formatter.git
+
+# 2) Enter project directory
+cd blueprint-text_formatter
+
+# 3) Run directly (quick start)
+# Open index.html in browser
+
+# 4) Optional: serve over local HTTP to mimic production hosting
+python3 -m http.server 8080
+# then open http://localhost:8080
+```
+
+> [!WARNING]
+> Opening via `file://` works for core behavior, but local HTTP is recommended when validating browser quirks and path resolution.
+
+## Testing
+
+At the moment, the repository has no formal automated test suite configured. Recommended manual verification matrix:
+
+```bash
+# Optional static serving for test pass
+python3 -m http.server 8080
+```
+
+Manual checks:
+
+1. Validate `normal` mode chunking with different sizes (`10`, `50`, `98`, `200`).
+2. Validate `tail` mode with multiple part counts and edge cases (very short input).
+3. Confirm `copy` action writes expected output to clipboard.
+4. Reload page and verify persisted settings restored from `localStorage`.
+5. Switch locales and ensure all labels/buttons update correctly.
+
+> [!CAUTION]
+> If you add logic around text parsing/chunking, test with very long strings to avoid regressions in line split math.
+
+## Deployment
+
+Current deployment model is static-site friendly and works great with GitHub Pages.
+
+### Production Build Strategy
+
+There is no transpile/build phase. Production artifact is the repository itself.
+
+### Typical GitHub Pages Flow
+
+1. Push changes to default branch.
+2. Ensure Pages is configured to serve from repository root (or selected branch/folder).
+3. Validate published URL and smoke-test core formatting paths.
+
+### CI/CD Recommendation (Optional)
+
+If you want stricter quality gates, wire a GitHub Actions workflow that:
+
+- checks markdown linting,
+- runs optional JS linting,
+- validates links in docs,
+- deploys static content only after checks pass.
+
+## Usage
+
+```text
+# Basic operator flow
+1) Paste raw text/blueprint payload into the input textarea.
+2) Choose formatting mode:
+   - normal: fixed-size chunking for full payload
+   - tail: custom split strategy for tail-sensitive payloads
+3) Set chunk size (and tail parts when in tail mode).
+4) Copy generated output from the result panel.
+5) Paste into Steam guide table or target editor.
+```
+
+```bash
+# Optional local serve + open
+python3 -m http.server 8080
+# Open browser -> http://localhost:8080
+```
+
+## Configuration
+
+The app has no `.env` requirements and no backend config.
+
+Runtime preferences are stored in browser `localStorage` keys:
+
+- `pr98_mode` — selected formatter mode.
+- `pr98_chunks` — per-mode chunk size map.
+- `pr98_tail_split` — tail mode parts setting.
+- `pr98_text` — latest raw input payload.
+- `pr98_lang` — selected UI locale.
+
+> [!NOTE]
+> Clearing browser storage resets the tool to default UX state.
+
+## License
+
+Distributed under the `GPL-3.0` license. See [`LICENSE`](LICENSE) for full legal text.
 
 ## Community and Support
 

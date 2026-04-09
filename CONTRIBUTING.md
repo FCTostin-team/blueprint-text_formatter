@@ -1,42 +1,55 @@
-# <a href="https://github.com/OstinUA" target="_blank" rel="noopener"><img src="https://raw.githubusercontent.com/OstinUA/Image-storage/main/Factorio/Gear-silhouette-of-the-Factorio-logo.png" width="32" valign="middle" alt="telegram:FCTostin"></a> Contributing Guide <a href="https://github.com/OstinUA"></a>
+<div align="center">
 
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-3e80ed?style=for-the-badge&logo=github&logoColor=white)](https://github.com/FCTostin-team)
-[![Open Source](https://img.shields.io/badge/Open_Source-Yes-brightgreen?style=for-the-badge&logo=open-source&logoColor=white)](https://github.com/FCTostin-team)
-[![Views](https://img.shields.io/badge/Profile_Views-%31&#56;%33-blueviolet?style=for-the-badge)](https://github.com/OstinUA)
-[![OstinUA](https://capsule-render.vercel.app/api?type=rect&color=FFA500&height=2&)](https://github.com/OstinUA)
+<a href="https://github.com/orgs/FCTostin-team/repositories">
+  <img src="https://raw.githubusercontent.com/OstinUA/Image-storage/main/readme/FCTostin-team%20%20Factorio%20Ostin-Team%20organization.png" width="180" alt="FCTostin team Factorio Ostin Team organization">
+</a>
 
+# FCTostin — Factorio Tools
 
-Hello! Thank you for your interest in contributing to this project. I am always open to any help, whether it's fixing bugs, adding new features, improving documentation, or just sharing fresh ideas. 
+> Специализированные инструменты и модификации для **Factorio** — автоматизация, оптимизация и QoL-улучшения.
 
-This document is not a strict set of rules, but a simple guide on how we can comfortably and productively work together.
+</div>
 
-## ⬢ How You Can Help
+---
 
-* **Found a bug?** Open an Issue and briefly describe what went wrong and how to reproduce it.
-* **Have a cool idea?** Create an Issue with your proposal. It's always best to discuss an idea first before spending time writing code.
-* **Improving documentation.** Fixing typos, expanding instructions, or translating — absolutely any help is valuable.
-* **Ready to write code?** Feel free to fork the repository and open a Pull Request.
+## 🇷🇺 Сообщество и поддержка
 
-## ⬢ Pull Request Process
+Этот репозиторий создан при непосредственной поддержке и обратной связи телеграм-сообщества **FCTostin**. Мы обсуждаем механики игры, делимся чертежами и разрабатываем новые решения для Factorio.
 
-The workflow here is as straightforward as possible:
+### 🔗 Присоединяйтесь
 
-1. Fork this repository.
-2. Create a new branch for your changes (`git checkout -b feature/my-awesome-idea` or `git checkout -b bugfix/issue-123`).
-3. Make your changes and commit them (`git commit -m "Add new awesome feature"`).
-4. Push the changes to your fork (`git push origin feature/my-awesome-idea`).
-5. Open a Pull Request to this repository.
+| Платформа | Ссылка | Описание |
+|-----------|--------|----------|
+| [![YouTube](https://img.shields.io/badge/YouTube-Channel-FF0000?style=flat-square&logo=youtube&logoColor=white)](https://www.youtube.com/@FCT-Ostin) | [youtube.com/@FCT-Ostin](https://www.youtube.com/@FCT-Ostin) | Гайды и стримы |
+| [![Telegram](https://img.shields.io/badge/Telegram-Chat-26A5E4?style=flat-square&logo=telegram&logoColor=white)](https://t.me/FCTostin) | [t.me/FCTostin](https://t.me/FCTostin) | Основная группа |
+| [![Steam](https://img.shields.io/badge/Steam-Group-1b2838?style=flat-square&logo=steam&logoColor=white)](https://steamcommunity.com/groups/FCTgroup) | [steamcommunity.com/groups/FCTgroup](https://steamcommunity.com/groups/FCTgroup) | Группа в Steam |
 
-## ⬢ A Few Simple Requests
+### ❤️ Поддержать разработку
 
-* Try to stick to the code style already used in the project.
-* Make your commit messages clear so it's easy to understand what changed.
-* If your Pull Request resolves a specific Issue, mention its number in the description (e.g., `Closes #42`).
-* If the logic changes, please update the relevant section in the README.
+Если инструменты оказались полезны — можно поддержать автора:
 
-## ⬢ Feedback
+[![Patreon](https://img.shields.io/badge/Patreon-Support-F96854?style=for-the-badge&logo=patreon&logoColor=white)](https://www.patreon.com/OstinFCT)
+[![Boosty](https://img.shields.io/badge/Boosty-Donate-F15F2C?style=for-the-badge&logo=boosty&logoColor=white)](https://boosty.to/ostinfct)
 
-I try to review all Issues and Pull Requests as quickly as possible. If I haven't replied in a while, don't hesitate to ping me in the comments.
+---
 
-The main rule is mutual respect. Welcome, and thank you for your contribution!
-[![OstinUA](https://capsule-render.vercel.app/api?type=rect&color=FFA500&height=2&)](https://github.com/OstinUA)
+## 🇺🇸 Community & Support
+
+This repository hosts specialized tools and modifications for **Factorio** — streamlining mechanics, automating routine tasks, and improving overall quality of life for players.
+
+Created with the support and feedback of the **FCTostin** Telegram community. We actively discuss game mechanics, share blueprints, and develop new Factorio solutions together.
+
+### 🔗 Join Us
+
+| Platform | Link | Description |
+|----------|------|-------------|
+| [![YouTube](https://img.shields.io/badge/YouTube-Channel-FF0000?style=flat-square&logo=youtube&logoColor=white)](https://www.youtube.com/@FCT-Ostin) | [youtube.com/@FCT-Ostin](https://www.youtube.com/@FCT-Ostin) | Guides & streams |
+| [![Telegram](https://img.shields.io/badge/Telegram-Chat-26A5E4?style=flat-square&logo=telegram&logoColor=white)](https://t.me/FCTostin) | [t.me/FCTostin](https://t.me/FCTostin) | Main discussion group |
+| [![Steam](https://img.shields.io/badge/Steam-Group-1b2838?style=flat-square&logo=steam&logoColor=white)](https://steamcommunity.com/groups/FCTgroup) | [steamcommunity.com/groups/FCTgroup](https://steamcommunity.com/groups/FCTgroup) | Steam Community Hub |
+
+### ❤️ Support Development
+
+If you find these tools useful, consider supporting the author:
+
+[![Patreon](https://img.shields.io/badge/Patreon-Support-F96854?style=for-the-badge&logo=patreon&logoColor=white)](https://www.patreon.com/OstinFCT)
+[![Boosty](https://img.shields.io/badge/Boosty-Donate-F15F2C?style=for-the-badge&logo=boosty&logoColor=white)](https://boosty.to/ostinfct)
